@@ -1,0 +1,139 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: nginx
+    build: ./srcs/nginx
+    ports:
+      - "8000:443"
+    volumes:
+      - ./srcs/nginx/conf:/etc/nginx/conf.d
+      - static_volume:/app/static
+      - media_volume:/app/media
+    depends_on:
+      - front
+    networks:
+      - ft_transcendence
+
+  front:
+    container_name: front
+    build: ./srcs/main
+    volumes:
+      - ./srcs/main:/app
+      - static_volume:/app/main_files/static
+      - media_volume:/app/media
+    ports:
+      - "8001:8001"
+    depends_on:
+      - db_main
+      - usermanagement
+      - game
+      - redis
+    env_file:
+      - .env
+    networks:
+      - ft_transcendence
+
+  db_main:
+    container_name: db_main
+    image: postgres:13
+    volumes:
+      - db_main_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${MAIN_DB}
+      POSTGRES_USER: ${MAIN_USER}
+      POSTGRES_PASSWORD: ${MAIN_PASSWORD}
+    networks:
+      - ft_transcendence
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${MAIN_USER} -d ${MAIN_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  game:
+    container_name: game
+    build: ./srcs/game
+    volumes:
+      - ./srcs/game:/app
+    ports:
+      - "8002:8002"
+    depends_on:
+      db_game:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - ft_transcendence
+
+  db_game:
+    container_name: db_game
+    image: postgres:13
+    volumes:
+      - db_game_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${GAME_DB}
+      POSTGRES_USER: ${GAME_USER}
+      POSTGRES_PASSWORD: ${GAME_PASSWORD}
+    networks:
+      - ft_transcendence
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${GAME_USER} -d ${GAME_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  usermanagement:
+    container_name: usermanagement
+    build: ./srcs/user_management
+    volumes:
+      - ./srcs/user_management:/app
+    ports:
+      - "8003:8003"
+    depends_on:
+      db_um:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - ft_transcendence
+
+  db_um:
+    container_name: db_um
+    image: postgres:13
+    volumes:
+      - db_um_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${UM_DB}
+      POSTGRES_USER: ${UM_USER}
+      POSTGRES_PASSWORD: ${UM_PASSWORD}
+    networks:
+      - ft_transcendence
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${UM_USER} -d ${UM_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6380:6379"
+    networks:
+      - ft_transcendence
+
+networks:
+  ft_transcendence:
+
+volumes:
+  db_main_data:
+  db_game_data:
+  db_um_data:
+  static_volume:
+  media_volume:
