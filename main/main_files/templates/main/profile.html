@@ -1,0 +1,76 @@
+{% load static %}
+<link href="{% static 'main/css/global.css' %}" rel="stylesheet">
+
+
+<h1>Your Profile</h1>
+<div class="profile-container">
+    <div class="profile-info">
+        <p><strong>Login :</strong></p>
+        <p><strong>Nickname :</strong></p>
+        <p><strong>Email :</strong></p>
+        <p><strong>Winrate :</strong></p>
+    </div>
+    <div class="profile-data">
+        <p>{{ user.login }}</p>
+        <div class="nickname-wrapper">
+            <p>{{ user.nickname }}</p>
+            {% if change != 'change_nickname' %}
+                <img id="editLoginBtn" src="{% static 'main/images/change_button.png' %}" alt="Change Nickname">
+            {% endif %}
+        </div>        <p>{{ user.email }}</p>
+        <p>{{ winrate }}%({{ user.nombre_victoire }}W/{{ user.nombre_defaite }}L)</p>
+    </div>
+    <div class="profile-avatar">
+        <div class="avatar-wrapper">
+            <img src="{{ user.avatar }}" alt="Profile Picture" width="150">
+            {% if change != 'change_avatar' %}
+                <div class="overlay">
+                   <button id="editAvatarBtn" class="custom-button btn"></button>
+                </div>
+            {%endif%}
+        </div>
+        <p id="message_avatar">{{ message_avatar }}</p>
+    </div>
+</div>
+{% if change == 'change_avatar' %}
+    <form novalidate method="post" id="editAvatarForm" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="profile-button-container">
+            <button type="submit" class="custom-button-form custom-button btn" id="ChangeAvatarBtn">Save</button>
+            <button type="button" id="cancelEditAvatar" class="custom-button-form custom-button btn">Cancel</button>
+        </div>
+    </form>
+{%endif%}
+<p id="message"><span>{{ message }}</span></p>
+{% if change == 'change_nickname' %}
+    <form novalidate method="post" id="editNicknameForm" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="profile-button-container">
+			<button type="submit" class="custom-button-form custom-button btn" id="ChangeLoginBtn">Save</button>
+            <button type="button" id="cancelEditLogin" class="custom-button-form custom-button btn">Cancel</button>
+        </div>
+    </form>
+{%endif%}
+<p style="display: none;" id="message_password">{{ message_password }}</p>
+<h2 class="congrats">Player history</h2>
+{% for game in historic %}
+<div class="match-historic">
+    <div class="player-nick left">{{ game.player1_nick }}</div>
+    <div class="score-section">
+        <div>{{ game.player1_score }}</div>
+        <div class="vs">Vs</div>
+        <div>{{ game.player2_score }}</div>
+    </div>
+    <div class="player-nick right">{{ game.player2_nick }}</div>
+</div>
+{% endfor %}
+<div class="profile-button-container">
+    <button type="button" id="editPassword" class="custom-button btn without-margin">Change Password</button>
+    {% if a2f == False %}
+        <button id="activateA2FBtn" class="custom-button btn btn-primary without-margin">Active A2F</button>
+    {% endif %}
+    <button id="logout" class="custom-button btn btn-primary without-margin">Logout</button>
+</div>
+

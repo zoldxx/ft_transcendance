@@ -1,0 +1,705 @@
+p {
+    color:white;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+li {
+    color: rgb(233, 198, 2);}
+h1 {
+    margin-bottom:40px;
+    padding:0;
+    font-size:1.1em;
+    font-weight: bold;
+    width: calc(100% + 80px);
+    height: 35px; /* Hauteur du bandeau */
+    background: linear-gradient(230deg,#3d3f41, #67696b, #67696b, #57585a, #4b4d50); /* Même dégradé que la bordure */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(233, 198, 2);
+}
+body {
+    background: url("../images/background_astrub.png") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0; /* Supprime les marges par défaut */
+    height: 90vh; /* Hauteur de la fenêtre */
+    display: flex;
+    flex-direction: column;
+}
+form {
+    margin: 0; /* Supprimer la marge par défaut */
+    padding: 0; /* Supprimer le padding par défaut */
+}
+
+.navbar-profile {
+    margin-right:40px;
+}
+.navbar-custom {
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.5s;
+}
+.navbar-custom:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+.navbar-brand {
+    font-weight: bold;
+    color: white;
+}
+.navbar-brand:hover {
+    color: #9ee715;
+}
+.navbar-nav .nav-link {
+    margin-right:15px;
+    color: white;
+    transition: color 0.5s;
+}
+.navbar-nav .nav-link:hover {
+    color: #9ee715;
+}
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+}
+.navbar-toggler:active, .navbar-toggler:focus {
+    border:none;
+    box-shadow: none;
+    outline:none;
+}
+.navbar-toggler-icon {
+    background-image: url('../images/menu.png');
+}
+/* Custom positioning for the navbar-toggler */
+.custom-toggler-position {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+.box-base {
+    display: flex;
+    flex: 1;
+    justify-content: center; 
+    align-items: center;
+}
+.content-box-base {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    padding-top:0;
+    background-color: rgb(51, 49, 49);
+    border: solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(230deg, #3d3f41, #67696b, #67696b, #67696b, #57585a, #3d3f41, #3d3f41);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2) inset; /* Ajoute une ombre interne */
+}
+.custom-button-form {
+    margin-left: 0px !important;
+    margin-top: 10px !important;
+}
+.custom-input {
+    background-color: rgb(31, 29, 29); /* Couleur de fond du champ de texte */
+    color: #5c5c5c; /* Couleur du texte */
+    border: 1px solid #575252; /* Couleur et taille de la bordure du champ de texte */
+    margin-top: 5px;
+    padding: 8px; /* Espacement intérieur du champ de texte */
+    width: 100%; /* Taille du champ de texte en pourcentage de son conteneur */
+    box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur */
+    border-radius: 0px;
+}
+.custom-input:focus {
+    background-color: rgb(31, 29, 29);
+    outline: none !important; /* Supprime l'outline par défaut */
+    box-shadow: 0 0 0 1px rgba(194, 194, 197, 0.5) !important; /* Crée un nouvel outline avec box-shadow */
+    border-radius: 0; /* Supprime le radius de l'outline */
+}
+.custom-input::placeholder {
+    color: #5c5c5c;
+}
+.form-group .custom-input {
+    background-color: rgb(31, 29, 29); /* Couleur de fond du champ de texte */
+    color: #5c5c5c; /* Couleur du texte */
+    border: 1px solid #575252; /* Couleur et taille de la bordure du champ de texte */
+    margin-top: 5px;
+    padding: 8px; /* Espacement intérieur du champ de texte */
+    width: 100%; /* Taille du champ de texte en pourcentage de son conteneur */
+    box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur */
+    border-radius: 0px;
+}
+.form-group .custom-input:focus {
+    background-color: rgb(31, 29, 29);
+    outline: none !important; /* Supprime l'outline par défaut */
+    box-shadow: 0 0 0 1px rgba(194, 194, 197, 0.5) !important; /* Crée un nouvel outline avec box-shadow */
+    border-radius: 0; /* Supprime le radius de l'outline */
+}
+.form-group .custom-input::placeholder {
+    color: #5c5c5c;
+}
+input:-webkit-autofill {
+    background-color: rgb(31, 29, 29) !important;
+    color: #5c5c5c !important;
+    border: 1px solid #575252 !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgb(31, 29, 29) inset !important;
+    box-shadow: 0 0 0px 1000px rgb(31, 29, 29) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Styles pour les suggestions d'auto-complétion sur Firefox */
+input:-moz-autofill {
+    background-color: rgb(31, 29, 29) !important;
+    color: #5c5c5c !important;
+}
+
+/* Remove the white background for suggestions in general */
+input::-webkit-autofill,
+input::-webkit-autofill:hover,
+input::-webkit-autofill:focus,
+input::-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px rgb(31, 29, 29) inset !important;
+    box-shadow: 0 0 0 1000px rgb(31, 29, 29) inset !important;
+    color: #5c5c5c !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: #5c5c5c !important; /* Couleur du texte */
+}
+.form-group {
+    margin:0px;
+    margin-bottom: 20px;
+}
+.form-group p{
+    margin:0px;
+    height:0px;
+}
+label {
+    height:0px;
+}
+.custom-button {
+    width:100%;
+    background-color: #9ee715; /* Couleur de fond du bouton */
+    color: rgb(51, 49, 49); /* Couleur du texte */
+    margin: 5px;
+    padding: 5px 20px; /* Rembourrage du bouton */
+    border: none; /* Supprime la bordure */
+    cursor: pointer; /* Change le curseur au survol */
+    border: outset #9ee715;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-radius: 0px;
+}
+.custom-button:hover {
+    background-color: #79b30f; /* Couleur de fond du bouton au survol */
+    color: rgb(51, 49, 49);
+    border-color: #8dcf12;
+}
+.custom-button:active, .custom-button:focus {
+    background-color: #79b30f; /* Background color when active/focused */
+    color: rgb(51, 49, 49);
+    border-color: #8dcf12; 
+    box-shadow: none; /* Remove default outline on focus */
+    outline: none;
+}
+.btn-primary.custom-button:not(:disabled):not(.disabled).active,
+.btn-primary.custom-button:not(:disabled):not(.disabled):active,
+.btn-primary.custom-button.show>.dropdown-toggle {
+    color: rgb(51, 49, 49); /* Your desired text color */
+    background-color: #79b30f; /* Your desired background color */
+    border-color: #8dcf12; /* Your desired border color */
+    box-shadow: 0 0 0 .2rem transparent;
+}
+.game-container {
+    width: 800px;
+    height: 500px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.friendlist h1 {
+    position:fixed;
+    right:5px;
+    width:390px;
+}
+.friendlist-content h2 {
+    font-size:1em;
+    font-weight: bold;
+    color: #858585;
+    margin-bottom: 5px;
+}
+
+.friendlist-content ul {
+    margin-bottom:5px;
+    padding: 0; /* Enlève le padding par défaut */
+    margin: 0; /* Enlève la marge par défaut */
+    text-align: left; /* Assure que le texte est aligné à gauche */
+}
+
+.friend-list, .invitation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.friend-list li, .invitation-list li {
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #555;
+}
+
+.friend-list li:last-child, .invitation-list li:last-child {
+    border-bottom: none;
+}
+
+.friend-name, .invitation-name {
+    flex: 2;
+}
+
+.friend-status, .invitation-status {
+    flex: 1;
+    text-align: right;
+    color: #bbb;
+}
+
+.add-contact-btn, .friendlist-btn {
+    background-color: #8dcf12;
+    color: #333;
+    border: none;
+    padding: 0px 5px 0px 5px;
+    cursor: pointer;
+    flex: 0;
+    height:30px;
+    margin:2px;
+}
+
+/* Status indicators */
+.friend-status::before {
+    content: "•";
+    margin-right: 5px;
+    font-size: 30px;
+}
+
+.friend.online .friend-status::before {
+    color: green;
+}
+
+.friend.offline .friend-status::before {
+    color: gray;
+}
+
+.friend.ingame .friend-status::before {
+    color: yellow;
+}
+
+.friendlist {
+    position: fixed;
+    display:flex;
+    flex-direction: column;
+    top: 42px;
+    right: 0;
+    height: calc(100% - 66px);
+    width: 400px; /* Largeur de la friendlist, ajustable selon vos besoins */
+    padding-top:0;
+    background-color: rgb(51, 49, 49);
+    border: solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(230deg, #3d3f41, #67696b, #67696b, #67696b, #57585a, #3d3f41, #3d3f41);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2) inset; /* Ajoute une ombre interne */
+}
+
+.friendlist-content {
+    flex:1;
+    z-index: 1;
+    margin-top:50px;
+    margin-bottom:10px;
+    background-color: #444;
+    padding: 10px;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(230deg, #3d3f41, #67696b, #67696b, #67696b, #57585a, #3d3f41, #3d3f41);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2) inset; /* Ajoute une ombre interne */
+}
+
+.add-friend {
+    margin-top: auto;
+}
+
+#openFriendlistButton {
+    position:absolute;
+    background:transparent;
+    top: 150px;
+    right: 28px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: none;
+}
+#openFriendlistButton:active,
+#openFriendlistButton:focus {
+    border:none;
+    box-shadow: none;
+    outline:none;
+}
+
+#closeFriendlistButton {
+    position:fixed;
+    width:25px;
+    height:auto;
+    top:75px;
+    right:15px;
+    background:transparent;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    z-index: 1000;
+}
+
+#closeFriendlistButton img {
+    width: 100%; /* Assurez-vous que l'image occupe la largeur du bouton /
+    height: auto; / Ajustement automatique de la hauteur pour conserver les proportions */
+}
+
+#closeFriendlistButton:active,
+#closeFriendlistButton:focus {
+    border:none;
+    box-shadow: none;
+    outline:none;
+}
+
+#window-friendlist-icone {
+    position:fixed;
+    top:57px;
+    right:330px;
+    z-index:1000;
+}
+.bracket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:30px;
+}
+.round {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    justify-content: space-between;
+}
+.round2 {
+    gap: 60px;
+}
+.round3 {
+    gap: 180px;
+}
+.match {
+    height: 40px;
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 5px;
+    border: none; /* Supprime la bordure */
+    border: solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(230deg, #3d3f41, #67696b, #67696b, #67696b, #57585a, #3d3f41, #3d3f41);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2) inset; /* Ajoute une ombre interne */
+    border-radius: 0px;
+    background: linear-gradient(230deg,#3d3f41, #67696b, #67696b, #57585a, #4b4d50); /* Même dégradé que la bordure */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    font-family: 'Arial', sans-serif; /* Police de caractères */
+    font-size: 16px; /* Taille de police */
+    color: rgb(233, 198, 2);
+    text-align: center; /* Texte centré */
+}
+.line {
+    border-left: 2px solid #000;
+    height: 20px;
+    margin: 0 auto;
+}
+.line.horizontal {
+    border-top: 2px solid #000;
+    height: 0;
+    width: 50px;
+}
+.match-historic {
+    height: 40px;
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    border: none; /* Supprime la bordure */
+    border: solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(230deg, #3d3f41, #67696b, #67696b, #67696b, #57585a, #3d3f41, #3d3f41);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2) inset; /* Ajoute une ombre interne */
+    border-radius: 0px;
+    background: linear-gradient(230deg,#3d3f41, #67696b, #67696b, #57585a, #4b4d50); /* Même dégradé que la bordure */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    font-family: 'Arial', sans-serif; /* Police de caractères */
+    font-size: 16px; /* Taille de police */
+    color: rgb(233, 198, 2);
+    text-align: center; /* Texte centré */
+}
+
+.player-nick.left {
+    text-align: left;
+    flex: 1;
+}
+
+.score-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 2; /* Plus grand pour centrer les scores */
+}
+
+.score-section div {
+    margin: 0 5px;
+}
+
+.vs {
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.player-nick.right {
+    text-align: right;
+    flex: 1;
+}
+
+.game {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px 0;
+}
+.profile-container {
+    display: flex;
+    justify-content:space-between;
+    width: 500px;
+    align-items: center;
+}
+
+.profile-info {
+    flex: 1;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.profile-info p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 20px;
+    white-space: nowrap; /* Empêche le retour à la ligne */
+}
+.profile-data {
+    margin:-50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+.profile-data p {
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.profile-info strong {
+    text-align: left;
+    min-width: 100%; /* Ajustez cette largeur selon vos besoins */
+}
+.profile-info p span {
+    flex: 1;
+    text-align: center;
+}
+.profile-avatar {
+    flex: 0 0 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.profile-avatar img {
+    display: block;
+    margin: 0 auto;
+}
+.avatar-wrapper {
+    z-index: 1100;
+    position: relative;
+    display: inline-block;
+}
+.avatar-wrapper img {
+    display: block;
+    width: 150px; /* ou la taille de l'image */
+    height: auto;
+}
+.avatar-wrapper .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.avatar-wrapper:hover .overlay {
+    opacity: 1;
+}
+#editAvatarBtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+#editAvatarBtn::after {
+    content: 'Change avatar';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 75px; /* Positionner sous l'image */
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Pour que le tooltip ne capte pas les événements de la souris */
+}
+.avatar-wrapper:hover #editAvatarBtn::after {
+    opacity: 1;
+}
+#editLoginBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative; /* Nécessaire pour positionner le tooltip */
+}
+#editLoginBtn::after {
+    content: 'Change Nickname';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -35px; /* Positionner sous l'image */
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Pour que le tooltip ne capte pas les événements de la souris */
+}
+#editLoginBtn:hover::after {
+    opacity: 1;
+}
+.nickname-wrapper {
+    display: inline-flex; /* Permet de garder les éléments sur la même ligne */
+    align-items: center; /* Aligne verticalement les éléments au centre */
+    margin-bottom:20px;
+    justify-content: center;
+}
+
+.nickname-wrapper p {
+    margin-bottom: 0px; /* Un petit espace entre le texte et l'image, ajustable selon vos besoins */
+}
+.nickname-wrapper img {
+    margin-left: 8px; /* Un petit espace entre le texte et l'image, ajustable selon vos besoins */
+    width:20px;
+}
+#window-profile-icone {
+    position:fixed;
+    top:50%;
+    right:50%;
+    z-index:1000;
+    transform: translateX(-225px) translateY(-205px); /* Déplace l'élément depuis le centre */
+}
+.without-margin {
+    margin:0;
+}
+.profile-button-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start; /* Change to 'center' or 'space-between' as needed */
+    gap: 10px; /* Space between buttons */
+    margin-top: 5px;
+}
+
+.congrats {
+    margin-bottom:20px;
+    font-size:2em;
+    font-weight: bold;
+    height: 35px; /* Hauteur du bandeau */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     color: rgb(233, 198, 2); 
+     -webkit-text-stroke: 1px black;
+     text-shadow: 
+     -2px -2px 0 black,  
+     2px -2px 0 black,  
+     -2px 2px 0 black,  
+     2px 2px 0 black;
+}
+
+#winnerDiv {
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: url("../images/victoire.png") no-repeat center center;
+    background-size: contain;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 40px;
+    position: absolute;
+    top: 30%;
+    left: 00px;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% load static %}
+<link href="{% static 'main/css/global.css' %}" rel="stylesheet" >
+<h1>Welcome to Transcendence!</h1>
+<div id="connectionStatus" style="display: none;">{{ connectionStatus }}</div>
+<div id="registerStatus" style="display: none;">{{ registerStatus }}</div>
+<button id="homeLocalBtn" class="btn btn-primary custom-button">Local</button>
+<button id="homeOnlineBtn" class="btn btn-primary custom-button">Online</button>
+<button id="homeTournamentBtn" class="btn btn-primary custom-button">Tournament</button>

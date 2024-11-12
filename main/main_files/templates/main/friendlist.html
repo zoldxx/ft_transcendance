@@ -1,0 +1,58 @@
+{% load static %}
+<button id="closeFriendlistButton">
+    <img src="{% static 'main/images/icone_croix.png' %}" alt="Close Friendlist">
+</button>
+<img id="window-friendlist-icone" src="{% static 'main/images/icone_friendlist.png' %}" alt="Friendlist-icone">
+<div class="container mt-4 friendlist">
+    <h1>SOCIAL</h1>
+    <div class="friendlist-content">
+        <h2>Friends</h2>
+        <ul class="friend-list">
+            {% for friend in friends %}
+                <li class="friend
+                    {% if myId == friend.to_user.id and friend.from_user.status == 'ingame' %}
+                        ingame
+                    {% elif myId == friend.from_user.id and friend.to_user.status == 'ingame' %}
+                        ingame
+                    {% elif myId == friend.to_user.id and friend.from_user.status == 'online' %}
+                        online
+                    {% elif myId == friend.from_user.id and friend.to_user.status == 'online' %}
+                        online
+                    {% else %}
+                        offline
+                    {% endif %}
+                    ">
+                    <span class="friend-name"> {% if myId == friend.to_user.id %} {{ friend.from_user.nickname }} {% else %} {{ friend.to_user.nickname }} {% endif %}</span>
+                    <span class="friend-status"></span>
+                </li>
+            {% endfor %}
+        </ul>
+        <h2>Friends requests send</h2>
+        <ul class="friend-list">
+            {% for friend in friends_requests_sends %}
+                <li>
+                    <span class="invitation-name"> {{ friend.to_user.nickname }} </span>
+                    <button class="friendlist-btn" data-to-user-id="{{ friend.to_user.id }}" data-from-user-id="{{ friend.from_user.id }}">Cancel</button>
+                </li>
+            {% endfor %}        
+        </ul>
+        <h2>Friends requests received</h2>
+        <ul class="friend-list">
+            {% for friend in friends_requests_receiveds %}
+                <li>
+                    <span class="invitation-name"> {{ friend.from_user.nickname }} </span>
+                    <button class="friendlist-btn" data-to-user-id="{{ friend.to_user.id }}" data-from-user-id="{{ friend.from_user.id }}">Accept</button>
+                    <button class="friendlist-btn" data-to-user-id="{{ friend.to_user.id }}" data-from-user-id="{{ friend.from_user.id }}">Decline</button>
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="add-friend">
+            <div>
+                <input class="custom-input" type="text" id="nickAddUser" placeholder="Add a friend ">
+            </div> 
+            <button id="addFriendButton" class="btn btn-primary custom-button custom-button-form">Add</button>
+        </div>
+    </div>
+</div>
+

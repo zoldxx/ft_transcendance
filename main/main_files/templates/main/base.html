@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if access_token %}
+    <meta name="access_token" content="{{ access_token }}">
+    {% endif %}
+	{% if refresh_token %}
+    <meta name="refresh_token" content="{{ refresh_token }}">
+    {% endif %}
+    {% if double_auth_name %}
+    <meta name="double_auth_name" content="{{ double_auth_name }}">
+    {% endif %}
+    {% if username %}
+    <meta name="username" content="{{ username }}">
+    {% endif %}
+    {% if login %}
+    <meta name="login" content="{{ login }}">
+    {% endif %}
+    {% if nickname %}
+    <meta name="nickname" content="{{ nickname }}">
+    {% endif %}
+    {% if is_api_user %}
+    <meta name="is_api_user" content="{{ is_api_user }}">
+    {% endif %}
+    {% if double_auth_active %}
+    <meta name="double_auth_active" content="{{ double_auth_active }}">
+    {% endif %}
+    {% if double_auth_key %}
+    <meta name="double_auth_key" content="{{ double_auth_key }}">
+    {% endif %}
+    <meta name="message" content="{{ message }}">
+    <meta name="api_user_exist" content="{{ api_user_exist }}">
+    <title>Transcendence</title>
+    <link href="{% static 'main/css/global.css' %}" rel="stylesheet" >
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'main/images/dofus_logo2.png' %}" rel="icon" type="image/png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand nav-link" href="/home/" style="font-size:1.4em">
+            <img src="{% static 'main/images/dofus_logo2.png' %}" alt="title_logo" style="height: 40px;">
+            Transcendence
+        </a>
+        <ul class="navbar-nav ml-auto navbar-profile d-lg-none">
+            <li class="nav-item">
+                <a class="nav-link" href="/login/" id="profileLink">
+                    <img id="profileImage" src="" alt="Profile" class="rounded-circle" width="30" height="30" style="display: none;">
+                    <span id="username">Login</span>
+                </a>
+            </li>
+        </ul>
+        <button class="navbar-toggler custom-toggler-position" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/game/local/">Local</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/game/online/room/">Online</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/game/tournament/room/">Tournament</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/historic/">History</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto navbar-profile d-none d-lg-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login/" id="profileLinkSmall">
+                        <span id="usernameSmall">Login</span>
+                        <img id="profileImageSmall" src="" alt="Profile" class="rounded-circle" width="30" height="30" style="display: none;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <button id="openFriendlistButton">
+        <img src="{% static 'main/images/icone_friendlist.png' %}" alt="Open Friendlist">
+    </button>
+    <div id="friendlist"></div>
+    <div class="container mt-4 box-base">
+		<div id="content" class="content-box-base">
+			{% include content_template|safe %}
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+</body>
+</html>

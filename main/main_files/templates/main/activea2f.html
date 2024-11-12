@@ -1,0 +1,8 @@
+{% load static %}
+{% csrf_token %}
+<link href="{% static 'main/css/global.css' %}" rel="stylesheet" >
+<h1>Activation Two Factor Authentication</h1>
+<div id="activateA2FContainer">
+    <div id="qrcode"></div>
+    <button id="verifyCodeBtn" class="custom-button-form custom-button">Verify Code</button>
+</div>

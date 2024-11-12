@@ -1,0 +1,22 @@
+{% load static %}
+<link href="{% static 'main/css/global.css' %}" rel="stylesheet">
+<h1>
+    Login
+</h1>
+<form id="loginForm" method="post" action="">
+    {% csrf_token %}
+    <div>
+        {{ form.username }}
+        <div id="usernameError" class="error-message" style="color: red;"></div>
+    </div>
+    <div>
+        {{ form.password }}
+        <div id="passwordError" class="error-message" style="color: red;"></div>
+    </div>
+    <div id="messageElement"></div>
+    <button id="loginBtn" class="custom-button-form custom-button" type="submit">Login</button><br>
+</form>
+
+<button id="gotoRegister" class="custom-button">Register</button>
+<!--<button id="register42Btn" class="custom-button" type="button" onclick="window.location.href='/login-with-42/'">login with 42</button> -->
+<div id="connectionStatus" style="display: none;">{{ connectionStatus }}</div>

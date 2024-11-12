@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournament</title>
+  {% load static %}
+  <link href="{% static 'main/css/global.css' %}" rel="stylesheet">
+</head>
+<body>
+  <h1>Tournament bracket</h1>
+
+    <div class="container">
+      <div class="bracket">
+        <!-- Round 1 -->
+         <div class="round">
+            <div class="match">
+              <div>{{ Players.0 }}</div><div>: {{ Scores.0.0 }}</div></div>
+            <div class="match">
+              <div>{{ Players.1 }}</div><div>: {{ Scores.0.1 }}</div></div>
+            <div class="match">
+              <div>{{ Players.2 }}</div><div>: {{ Scores.1.0 }}</div></div>
+            <div class="match">
+              <div>{{ Players.3 }}</div><div>: {{ Scores.1.1 }}</div></div>
+            <div class="match">
+              <div>{{ Players.4 }}</div><div>: {{ Scores.2.0 }}</div></div>
+            <div class="match">
+              <div>{{ Players.5 }}</div><div>: {{ Scores.2.1 }}</div></div>
+            <div class="match">
+              <div>{{ Players.6 }}</div><div>: {{ Scores.3.0 }}</div></div>
+            <div class="match">
+              <div>{{ Players.7 }}</div><div>: {{ Scores.3.1 }}</div></div>
+        </div>
+        <!-- Round 2 -->       
+        <div class="round round2">
+            <div class="match">
+              <div>{{ Round2Players.0 }}</div><div>{% if Round2Players.0 and Round2Players.1 %}: {{ Scores.4.0 }}{% endif %}</div></div>
+            <div class="match">
+              <div>{{ Round2Players.1 }}</div><div>{% if Round2Players.0 and Round2Players.1 %}: {{ Scores.4.1 }}{% endif %}</div></div>
+            <div class="match">
+              <div>{{ Round2Players.2 }}</div><div>{% if Round2Players.2 and Round2Players.3 %}: {{ Scores.5.0 }}{% endif %}</div></div>
+            <div class="match">
+              <div>{{ Round2Players.3 }}</div><div>{% if Round2Players.2 and Round2Players.3 %}: {{ Scores.5.1 }}{% endif %}</div></div>
+        </div>
+        <!-- Round 3 -->
+        <div class="round round3">
+          <div class="match">
+            <div>{{ Round3Players.0 }}</div><div>{% if Round3Players.0 and Round3Players.1 %}: {{ Scores.6.0 }}{% endif %}</div></div>
+          <div class="match">
+            <div>{{ Round3Players.1 }}</div><div>{% if Round3Players.0 and Round3Players.1 %}: {{ Scores.6.1 }}{% endif %}</div></div>
+        </div>
+        <!-- Final Round -->
+        <div class="round">
+          <div class="match">{{ Winner.0 }}</div>
+        </div>
+      </div>
+    </div>
+    <div id="winnerDiv"style="animation: slideIn 0.5s forwards;" >
+      <div class="congrats">Congratulations !</div>
+      <div class="congrats">{{Winner}} is the tournament winner !</div>
+    </div>
+    {% if Winner %}
+  <button id="WinBtn" class="btn btn-primary custom-button">Finish</button>  
+    {% endif %}
+    {% if not Winner %}
+  <button id="nextMatch" class="btn btn-primary custom-button">Next match</button>
+  {% endif %}
+
+  <script src='/static/game/js/pong.js'></script>
+</body>
+</html>

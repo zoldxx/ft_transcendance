@@ -1,0 +1,10 @@
+{% load static %}
+{% csrf_token %}
+<link href="{% static 'main/css/global.css' %}" rel="stylesheet" >
+<h1>Validation Two Factor Authentication</h1>
+<div id="A2FContainer">
+    <form>
+        <input type="text" id="codeA2fInput" maxlength="6" placeholder="Enter 6-digit code" required class="form-control white-text custom-input">
+        <button id="submitCodeA2fBtn" class="custom-button-form custom-button">Submit</button>
+    </form>    
+</div>

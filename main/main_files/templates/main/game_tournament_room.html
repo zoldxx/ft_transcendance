@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu Pong</title>
+  {% load static %}
+  <link href="{% static 'main/css/global.css' %}" rel="stylesheet">
+</head>
+<body>
+  <h1>Online Pong Tournament</h1>
+  
+  <div>
+    <input class="custom-input" type="text" id="player1" placeholder="Enter player1 name">
+  </div> 
+  <div>
+    <input class="custom-input" type="text" id="player2" placeholder="Enter player2 name">
+  </div> 
+  <div>
+    <input class="custom-input" type="text" id="player3" placeholder="Enter player3 name">
+  </div> 
+  <div>
+    <input class="custom-input" type="text" id="player4" placeholder="Enter player4 name">
+  </div> 
+  <div>
+    <input class="custom-input" type="text" id="player5" placeholder="Enter player5 name">
+  </div> 
+  <div>
+    <input class="custom-input" type="text" id="player6" placeholder="Enter player6 name">
+  </div> 
+  <div>
+    <input class="custom-input" type="text" id="player7" placeholder="Enter player7 name">
+  </div> 
+  <div>
+    <input class="custom-input" type="text" id="player8" placeholder="Enter player8 name">
+  </div> 
+  <button id="createTurnBtn" class="btn btn-primary custom-button">Create tournament</button>
+  <script src='/static/game/js/pong.js'></script>
+</body>
+</html>

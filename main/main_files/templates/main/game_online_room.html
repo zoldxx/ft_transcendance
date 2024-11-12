@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu Pong</title>
+  {% load static %}
+  <link href="{% static 'main/css/global.css' %}" rel="stylesheet">
+</head>
+<body>
+  <h1>Online Pong Game</h1>
+  
+  <button id="createRoomBtn" class="btn btn-primary custom-button">Create room</button>
+  <button id="joinRoomBtn" class="btn btn-primary custom-button">Join room</button>
+  <div>
+    <input class="custom-input" type="text" id="roomName" placeholder="Enter room name">
+  </div> 
+
+  <script src='/static/game/js/pong.js'></script>
+</body>
+</html>

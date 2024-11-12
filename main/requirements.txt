@@ -1,0 +1,15 @@
+Django==5.0.6
+django-filter==24.1
+djangorestframework==3.15.0
+gunicorn
+psycopg==3.1.8
+psycopg2-binary
+python-dotenv
+requests
+qrcode[pil]
+pyotp
+djangorestframework-simplejwt==5.2.2
+Pillow
+bleach
+PyJWT
+python-jose

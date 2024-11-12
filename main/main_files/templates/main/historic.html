@@ -1,0 +1,29 @@
+{% load static %}
+<link href="{% static 'main/css/global.css' %}" rel="stylesheet">
+
+<h1>Game history</h1>
+
+{% if historic %}
+    {% for game in historic %}
+    <div class="match-historic">
+        <div class="player-nick left">{{ game.player1_nick }}</div>
+        <div class="score-section">
+            <div>{{ game.player1_score }}</div>
+            <div class="vs">Vs</div>
+            <div>{{ game.player2_score }}</div>
+        </div>
+        <div class="player-nick right">{{ game.player2_nick }}</div>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No game history available.</p>
+{% endif %}
+
+<!-- {% for game in historic %}
+    <div class="game">
+        <div class="match-historic">
+            <div>{{ game.player1_nick }}</div><div> {{ game.player1_score }}</div> Vs <div>{{ game.player2_score }} </div>  <div>{{ game.player2_nick }}</div></div>
+       
+    </div>
+{% endfor %} -->
+

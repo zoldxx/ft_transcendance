@@ -1,0 +1,13 @@
+Django==5.0.6
+django-filter==24.1
+djangorestframework==3.15.0
+gunicorn
+psycopg==3.1.8
+psycopg2-binary
+python-dotenv
+flask
+channels
+channels_redis
+daphne
+requests
+bleach

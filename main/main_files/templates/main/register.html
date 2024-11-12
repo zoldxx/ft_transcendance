@@ -1,0 +1,47 @@
+{% load static %}
+<link href="{% static 'main/css/global.css' %}" rel="stylesheet">
+<h1>
+    Register
+</h1>
+<div>
+<form id="RegisterForm" method="post" action="">
+    {% csrf_token %}
+    
+    <div class="form-group">
+        <p>{{ form.login.label_tag }}</p>
+        {{ form.login }}
+        {% for error in form.login.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        <p>{{ form.email.label_tag }}</p>
+        {{ form.email }}
+        {% for error in form.email.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        <p>{{ form.password1.label_tag }}</p>
+        {{ form.password1 }}
+        {% for error in form.password1.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        <p>{{ form.password2.label_tag }}</p>
+        {{ form.password2 }}
+        {% for error in form.password2.errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div id="messageElement"></div>
+    <button id="registerBtn" class="custom-button-form custom-button" type="submit">Register</button>
+    <!--<div id="error-message" style="color: red; margin-top: 20px;">-->
+    <button id="backtologin" class="custom-button-form custom-button" type="button">Back to login</button>
+    </form>
+<!--<button id="register42Btn" type="button" class="custom-button" onclick="window.location.href='/login-with-42/'">Register with 42</button>-->
+</div>
